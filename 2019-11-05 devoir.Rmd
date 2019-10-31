@@ -1,0 +1,26 @@
+---
+title: "Devoir pour le 5 novembre"
+output: 
+  pdf_document: 
+    highlight: tango
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Énoncé
+
+On tire à pile ou face 100 fois avec une pièce de monnaie. Les tirages sont supposés indépendants et le nombre de "pile" suit une loi binomiale.
+
+## Question 1
+En supposant la pièce parfaitement équilibrée, quelle est la probabilité pour qu'elle tombe sur "pile" entre 45 et 65 fois (inclus) ?
+
+Vous pourrez répondre à cette question en utilisant la distribution binomiale théorique ou en simulant des tirages. La réponse demande au plus 2 lignes de code.
+
+## Question 2
+Même question si on suppose la pièce déséquilibrée et tombant sur "pile" avec une probabilité de 60%.
+
+# Format de la réponse
+Vous répondrez aux 2 questions via un fichier Rmd capable de générer un fichier `R Notebook` avec un code **reproductible**. Vous commenterez la méthode employée.
+Vous choisirez les options de mise en forme.
