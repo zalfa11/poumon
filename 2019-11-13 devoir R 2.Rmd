@@ -1,0 +1,66 @@
+---
+title: "Devoir `tidyverse` pour le 13 novembre"
+output: 
+  html_notebook: 
+    highlight: tango
+    number_sections: yes
+    theme: cerulean
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE) 
+```
+
+Les exercices ci-dessous sont à rendre en modifiant ce fichier Rmd (ou en le recopiant) et en le déposant dans ce même répertoire. Un emplacement est réservé pour chaque réponse. Vous pouvez si besoin modifier le format de sortie et les options de mise en forme. Il est inutile de déposer le fichier généré (pdf, html, etc.).
+
+Certains des exercices ci-dessous font appel à des notions non vues en cours. Vous trouverez beaucoup d'aide en ligne, notamment sur [le site de documentation du package `tidyverse`](https://www.tidyverse.org) (cliquer sur le nom des fonctions pour voir leur page dédiée).
+
+
+```{r}
+library(tidyverse)
+library(gapminder)
+```
+
+# D'après le tableau `gapminder`,  créer une variable `gdp` correspondant au PIB total du pays (PIB / habitant * population)
+```{r}
+
+
+```
+
+# Pour chaque pays, filter les 2 années correspondant au `gdp` minimal et maximal
+```{r}
+
+
+```
+
+# Ajouter au tableau précédent une variable `min_max` ayant pour valeur `min` ou `max` selon que l'année correspond au PIB minimal ou maximal pour ce pays et supprimer les variables `pop`, et `gdpPercap`.
+```{r}
+
+
+```
+
+# À l'aide de la fonction [`pivot_wider`](https://tidyr.tidyverse.org/reference/pivot_wider.html), reformatez le tableau avec une ligne par pays, deux variables indiquant l'année du PIB min / max et deux variables indiquant les valeurs de PIB correspondantes.
+```{r}
+
+
+```
+
+# À partir du tableau `gapminder`, tracer sur une même figure un boxplot de l'espérance de vie pour 1952 et un autre pour l'année 2007 (aide disponible sur la page [https://ggplot2.tidyverse.org/](https://ggplot2.tidyverse.org/)
+```{r}
+
+
+```
+
+# Réaliser une figure représentant, pour les 5 continents, les 2 boxplots de 1952 et 2007 côte à côte.
+```{r}
+
+
+```
+
+# Trouver une représentation graphique représentant, pour chaque continent, l'évolution de l'espérance de vie médiane au cours du temps et permettant si possible de comparer cette évolution entre les continents.
+```{r}
+
+
+```
+
+
