@@ -1,0 +1,269 @@
+---
+title: "Devoir pour le 20 novembre - itérations"
+output: 
+  html_notebook: 
+    highlight: tango
+    theme: cerulean
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE) 
+# packages à charger ?
+
+```
+
+L'exercice ci-dessous est à rendre en modifiant ce fichier Rmd (ou en le recopiant) et en le déposant dans ce même répertoire. Un emplacement est réservé pour chaque réponse. Vous pouvez si besoin modifier le format de sortie et les options de mise en forme. Il est inutile de déposer le fichier généré (pdf, html, etc.).
+
+Conventions :  
+
+- Pour l'ensemble de ce devoir, on pourra faire l'appoximation que toutes les années sont composées de 365 jours, sans tenir compte des années bissextiles.
+- On fera également l'hypothèse que toutes les naissances sont réparties uniformément tout au long de l'année.
+- On considérera qu'une proportion observée sur un grand nombre de tirages est assimilable à une probabilité.
+- Pour répondre aux questions, il est conseillé de considérer les dates comme des valeurs numériques (par exemple les entiers de 1 à 365), sans tenir compte des jours/mois mais différentes approches sont envisageables.
+- Lorsqu'on s'intéresse à l'événement "dans un groupe de $n$ personnes, une date anniversaire est commune à $k$ personnes", il faut comprendre "dans un groupe de $n$ personnes, au moins une date anniversaire est commune à au moins $k$ personnes" (plusieurs dates peuvent répondre à cette condition ou et la date peut être commune à plus de $k$ personnes).
+
+Aide pour le code :
+
+- Pour tirer au sort la date anniversaire de 3 personnes, on peut par exemple faire un tirage avec remise :
+```{r}
+set.seed(123) # à faire au début du script pour la reproductibilité
+sample(365, size = 3, replace = TRUE)
+```
+
+- Pour connaître le nombre d'occurrences d'une valeur données dans un veccteur, on peut utliser la fonction `table` :
+```{r}
+vec <- c(2, 7, 8, 3, 7, 4, 7, 2)
+table(vec)
+```
+
+- Pour savoir si une valeur est présente au moins 3 fois dans ce vecteur :
+```{r}
+any(table(vec) >= 3)
+```
+- Il est possible (voire souvent conseillé), lors de la définition d'une fonction, d'appeler une autre fonction préalablement définie si nécessaire.
+
+
+### Question 1
+La probabilité pour qu'une date anniversaire soit partagée par 2 personnes prises au hasard dans la population est de $\frac{1}{365} \approx 0.0027$
+Vérifiez ce résultat par simulation.
+
+Indice :  
+
+- on peut tirer au sort deux entiers entre 1 et 365 un grand nombre de fois et calculer la proportion de cas pour lesquels ces deux valeurs sont identiques ;
+- ou on peut plus simplement considérer que l'anniversaire de la première personne peut être notée "1" si on choisit de commencer à compter les jours à partir de cette date, et juste tirer au sort un entier correspondant à l'anniversaire de la deuxième personne.
+
+```{r}
+
+```
+
+### Question 2
+Soit un groupe de $n$ personnes.
+Pour $n \in \left\{ 2, 10, 200 \right\}$, tirer au sort la date anniversaire de ces $n$ personnes et déterminer, dans chaque cas de figure, si une date anniversaire est commune à 2 personnes.
+```{r}
+
+```
+
+### Question 3
+En s'inspirant de la réponse 2, définir une fonction $f1$ (à renommer à votre convenance) prenant pour argument un entier `n` et qui, pour un groupe de `n` personnes avec anniversaire tiré au sort, trouve si une date anniversaire est commune à 2 personnes (par exemple en renvoyant `1`/`0` ou `TRUE`/ `FALSE`).
+Tester cette fonction pour $n \in \left\{ 2, 10, 200 \right\}$
+
+Le résultat doit ressembler au code ci-dessous :
+
+```
+f1 <- function(n) {
+  # corps de la fonction à définir
+}
+
+f1(2)
+# [1] FALSE
+f1(10)
+# [1] FALSE
+f1(100)
+# [1] TRUE
+```
+
+```{r}
+
+```
+
+### Question 4
+Soit un groupe de $n$ personnes.
+Pour $n \in \left\{2, 10, 200 \right\}$, tirer au sort la date anniversaire de ces $n$ personnes et déterminer, dans chaque cas de figure, si une date anniversaire est commune à 3 personnes.
+
+```{r}
+
+```
+
+
+### Question 5
+En s'inspirant des réponses 3 et 4, définir une fonction $f2$ (à renommer) prenant pour argument un entier `n` et qui, pour un groupe de `n` personnes avec anniversaire tiré au sort, trouve si une date anniversaire est commune à 3 personnes.
+Tester cette fonction pour $n \in \left\{ 2, 10, 200 \right\}$
+
+Le résultat doit ressembler au code ci-dessous :
+
+```
+f2 <- function(n) {
+  # corps de la fonction à définir
+}
+
+f2(2)
+# [1] FALSE
+f2(10)
+# [1] FALSE
+f2(100)
+# [1] FALSE
+```
+
+```{r}
+
+```
+
+### Question 6
+En s'inspirant des réponses 3 et 5, définir une fonction $f3$ (à renommer) prenant pour argument un vecteur `n` d'entiers et un entier `k` et qui, pour un groupe de `n` personnes avec anniversaire tiré au sort, trouve si une date anniversaire est commune à `k` personnes.
+Tester cette fonction pour $n \in \left\{ 2, 10, 200 \right\}$ et $k = (2, 3)$.
+
+Le résultat doit ressembler au code ci-dessous :
+
+```
+f3 <- function(n, k) {
+  # corps de la fonction à définir
+}
+
+f3(n = 2, k = c(2, 3))
+##  A tibble: 1 x 2
+#  `2`   `3`  
+#  <lgl> <lgl>
+#1 FALSE FALSE
+
+f3(n = 10, k = c(2, 3))
+##  A tibble: 1 x 2
+#   `2`   `3`  
+#   <lgl> <lgl>
+# 1 FALSE FALSE
+
+f3(n = 100, k = c(2, 3))
+##  A tibble: 1 x 2
+#   `2`   `3`  
+#   <lgl> <lgl>
+# 1 TRUE  TRUE 
+```
+
+```{r}
+
+```
+
+### Question 7
+En s'inspirant de la réponse 6, définir une fonction `f4` (à renommer) prenant pour argument un vecteur `n` d'entiers,  un entier `k` et un entier `rep`. La fonction doit répliquer `rep` fois l'action de la fonction `f3` (tirer `n` dates anniversaires et trouver si une date est partagée par `k` personnes). Le résultat doit être un tableau de données ou une matrice avec `rep` lignes et `k` colonnes.
+Tester cette fonction pour $n = 2$, $k = (2, 3)$ et $rep = 5$.
+
+Le résultat doit ressembler au code ci-dessous :
+
+```
+f4 <- function(n, k, rep) {
+  # corps de la fonction à définir
+}
+
+f4(n = 20, k = c(2, 3), rep = 5)
+## A tibble: 5 x 2
+#   `2`   `3`  
+#   <lgl> <lgl>
+# 1 TRUE  FALSE
+# 2 FALSE FALSE
+# 3 TRUE  FALSE
+# 4 TRUE  FALSE
+# 5 FALSE FALSE
+```
+
+```{r}
+
+```
+
+### Question 8
+Modifier la fonction $f4$ en $f5$ pour qu'elle renvoie non pas toutes les valeurs des tests mais juste la proportion d'échantillons de `n` personnes pour lesquels un anniversaire est commun à `k` personnes.
+Tester cette fonction pour $n = 20$, $k = (2, 3)$ et $rep = 1000$.
+
+Le résultat doit ressembler au code ci-dessous :
+```
+f5 <- function(n, k, rep) {
+  # corps de la fonction à définir
+}
+
+f5(n = 20, k = c(2, 3), rep = 1000)
+### A tibble: 1 x 2
+#     `2`    `3`
+#   <dbl>  <dbl>
+# 1 0.418 0.0077
+```
+
+```{r}
+
+```
+
+### Question 9
+Généraliser la fonction $f5$ en fonction $f6$ qui, à partir de la fonction d'un vecteur d'entier `n`, d'un vecteur d'entiers `k` et d'un entier `rep` renvoie, pour chaque combinaison des valeurs de `n`et de `k`, la proportion d'écnatillons parmi `rep` pour lesquels un anniversaire est commun à `k` personnes.
+Le résultat doit être un tableau de données avec les valeurs de `n` en noms de ligne et les valeurs de `k` en noms de colonnes.
+Tester cette fonction pour $n = (2, 10, 100)$, $k = (2, 3)$ et $rep = 100$.
+
+Le résultat doit ressembler au code ci-dessous :
+
+```
+f6 <- function(n, k, rep) {
+  # corps de la fonction à définir
+}
+
+f6(n = 20, k = c(2, 3), rep = 1000)
+### A tibble: 1 x 2
+#       n   `2`   `3`
+#   <dbl> <dbl> <dbl>
+# 1     2  0.01  0   
+# 2    10  0.13  0   
+# 3   100  1     0.68
+```
+```{r}
+
+```
+
+### Question 10
+Adapter la fonction $f6$ en $f7$ qui utilise les mêmes arguments et renvoie les mêmes informations mais sous un tableau au format "long" : une colonne pour la valeur de `n`, une colonne pour la valeur de `k` et une colonne de résultat (porportion d'écnatillons parmi `rep` pour lesquels un anniversaire est commun à `k` personnes).
+Tester cette fonction pour les mêmes valeurs que précédemment ($n = (2, 10, 100)$, $k = (2, 3)$ et $rep = 100$).
+
+Le résultat doit ressembler au code ci-dessous :
+
+```
+f7 <- function(n, k, rep) {
+  # corps de la fonction à définir
+}
+
+f7(n = 20, k = c(2, 3), rep = 1000)
+## A tibble: 6 x 3
+#       n k      prop
+#   <dbl> <chr> <dbl>
+# 1     2 2      0.01
+# 2     2 3      0   
+# 3    10 2      0.13
+# 4    10 3      0   
+# 5   100 2      1   
+# 6   100 3      0.68
+```
+
+```{r}
+
+```
+
+### Question 11
+Proposer une figure permettant de visualiser la proportion d'échantillons de `n` personnes pour lesquels un anniversaire est commun à `k` personnes, en fonction de `k` et de `n` (avec n ≤ 100).
+La figure devra représenter plusieurs valeurs de `k` et ne `n` (pas forcément toutes) et donner une idée de comment la proportion évolue en fonction de ces deux variables. Vous choisirez une valeur de `rep` suffisamment grande pour que les fluctuations d'échantillonnage ne nuisent pas à la compréhension de la figure.
+
+Vous pouvez faire plusieurs propositions de figures si besoin.
+
+```{r}
+
+```
+
+
+
+
+
+
+
+
